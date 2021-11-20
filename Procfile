@@ -1,0 +1,1 @@
+web: gunicorn portfolio_blog_app.wsgi --log-file -
