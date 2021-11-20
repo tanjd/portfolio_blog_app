@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block title %}
-    Create Blog Post
+Create Blog Post
 {% endblock %}
 {% block content %}
 <h1>Create Blog Post</h1>
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button class=" btn btn-primary">Create</button>
+	<a class=" btn btn-secondary" href=" {% url "home"	%}">back </a>
+</form>
 
-<a href="{% url "home" %}">back</a>
 {% endblock %}
