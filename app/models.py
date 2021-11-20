@@ -8,4 +8,4 @@ class Post(models.Model):
     body = models.TextField()
 
     def _str__(self):
-        return self.title + " | " + self.author
+        return self.title + " | " + str(self.author)
