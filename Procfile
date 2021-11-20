@@ -1,1 +1,1 @@
-web: gunicorn portfolio_blog_app.wsgi --log-file -
+web: python manage.py runserver 0.0.0.0:\$PORT
