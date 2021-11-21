@@ -17,17 +17,23 @@
   <!-- navbar goes here -->
   <nav aria-label="Site menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Tanjd</a>
+      <a class="navbar-brand" href="{% url "home" %}">Tanjd</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        {% if user.is_authenticated %}
         <div class="navbar-nav">
-          <a class="nav-link" href="{% url "home" %}">Home</a>
           <a class="nav-link" href="{% url "create-post" %}">Create a post</a>
-          <a class="nav-link" href="#"></a>
+          <a class="nav-link" href="{% url "logout" %}">Logout</a>
         </div>
+        {% else %}
+        <div class="navbar-nav">
+          <a class="nav-link" href="{% url "register" %}">Register an account</a>
+          <a class="nav-link" href="{% url "login" %}">Login</a>
+        </div>
+        {% endif%}
       </div>
     </div>
   </nav>
