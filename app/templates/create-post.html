@@ -4,11 +4,12 @@ Create Blog Post
 {% endblock %}
 {% block content %}
 <h1>Create Blog Post</h1>
-<form method="POST">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button class=" btn btn-primary">Create</button>
-	<a class=" btn btn-secondary" href=" {% url "home"	%}">back </a>
-</form>
-
+<div class="form-group">
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<a class=" btn btn-secondary" href=" {% url "home"	%}">back </a>
+		<button class=" btn btn-primary">Create</button>
+	</form>
+</div>
 {% endblock %}
