@@ -14,7 +14,28 @@
 </head>
 
 <body>
-  <div class="container">{% block content %} {% endblock %}</div>
+  <!-- navbar goes here -->
+  <nav aria-label="Site menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tanjd</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{% url "home" %}">Home</a>
+          <a class="nav-link" href="{% url "create-post" %}">Create a post</a>
+          <a class="nav-link" href="#"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
