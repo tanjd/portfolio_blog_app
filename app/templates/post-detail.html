@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 <h1>{{ post.title }}</h1>
-<small>{{ post.author }}</small>
+<small>{{ post.author }} - created: {{ post.created }} last modified: {{ post.last_modified }}</small>
 <hr />
 {{ post.body }}
 <br>
