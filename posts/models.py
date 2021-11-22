@@ -34,7 +34,7 @@ class Post(models.Model):
         return self.title + " | " + str(self.author)
 
     def get_absolute_url(self):
-        return reverse("home")
+        return reverse("post-detail", kwargs={"pk": self.pk})
 
 
 # class CategoryToPost(models.Model):
