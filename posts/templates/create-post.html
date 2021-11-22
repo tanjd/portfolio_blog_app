@@ -2,7 +2,7 @@
 {% block title %}
 Create Blog Post
 {% endblock %}
-{% block content %
+{% block content %}
 {% if user.is_authenticated %}
 <h1>Create Blog Post</h1>
 <div class="form-group">
@@ -15,5 +15,5 @@ Create Blog Post
 </div>
 {% else %}
 You are not allowed here
-{% endif %}}
+{% endif %}
 {% endblock %}

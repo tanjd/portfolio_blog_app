@@ -3,10 +3,30 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+# class Category(models.Model):
+#     name = models.CharField(max_length=255)
+#     slug = models.SlugField(max_length=200, unique=True)
+#     description = models.TextField()
+#     created = models.DateTimeField(auto_now_add=True)
+#     last_modified = models.DateTimeField(auto_now=True)
+
+#     def _str__(self):
+#         return self.name
+
+#     def get_absolute_url(self):
+#         return reverse("home")
+
+#     class Meta:
+#         verbose_name_plural = "Categories"
+
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
+    # categories = models.ManyToManyField(
+    #     Category, blank=True, null=True, through="CategoryToPost"
+    # )
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
@@ -15,3 +35,8 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("home")
+
+
+# class CategoryToPost(models.Model):
+#     post = models.ForeignKey(Post)
+#     category = models.ForeignKey(Category)
