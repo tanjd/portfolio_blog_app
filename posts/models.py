@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-
+from ckeditor.fields import RichTextField
 
 # class Category(models.Model):
 #     name = models.CharField(max_length=255)
@@ -23,7 +23,7 @@ from django.urls import reverse
 class Post(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    body = models.TextField()
+    body = RichTextField(blank=True, null=True)
     # categories = models.ManyToManyField(
     #     Category, blank=True, null=True, through="CategoryToPost"
     # )

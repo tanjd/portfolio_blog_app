@@ -7,13 +7,16 @@ Update {{ post.title }}
 Create post
 {% endif %}
 {% endblock %}
+
 {% block content %}
+
 {% if user.is_authenticated %}
 <div class="form-group">
 	<form method="POST">
 		{% csrf_token %}
 		<fieldset class="form-group">
 			<legend class="border-bottom mb-4">Blog Post</legend>
+			{{form.media}}
 			{{ form|crispy }}
 		</fieldset>
 		<div class="form-group">
@@ -25,4 +28,5 @@ Create post
 {% else %}
 You are not allowed here
 {% endif %}
+
 {% endblock %}
