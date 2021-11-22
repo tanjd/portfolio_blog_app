@@ -67,7 +67,7 @@ db.sqlite3-journal
 *.pot
 *.pyc
 __pycache__
-media
+media/profile_pics
 
 # Scrapy stuff:
 .scrapy
