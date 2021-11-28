@@ -37,8 +37,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (env("DEBUG")
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = env("DEBUG")
+print(DEBUG)
 ALLOWED_HOSTS = ["jeddy-portfolio-blog-app.herokuapp.com/", "127.0.0.1"]
 
 
