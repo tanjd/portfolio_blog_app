@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import django_heroku
 import environ
+import cloudinary_storage
 from pathlib import Path
 
 
@@ -34,13 +35,18 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
-
+print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 print(DEBUG)
 ALLOWED_HOSTS = ["jeddy-portfolio-blog-app.herokuapp.com/", "127.0.0.1"]
 
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": env("CLOUD_NAME"),
+    "API_KEY": env("API_KEY"),
+    "API_SECRET": env("API_SECRET"),
+}
 
 # Application definition
 
@@ -55,6 +61,7 @@ INSTALLED_APPS = [
     "posts",
     "users",
     "ckeditor",
+    "cloudinary_storage",
 ]
 
 MIDDLEWARE = [
@@ -138,6 +145,7 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
