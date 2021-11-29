@@ -41,11 +41,6 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["jeddy-portfolio-blog-app.herokuapp.com/", "127.0.0.1"]
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": env("CLOUD_NAME"),
-    "API_KEY": env("API_KEY"),
-    "API_SECRET": env("API_SECRET"),
-}
 
 # Application definition
 
@@ -144,7 +139,15 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+if DEBUG == False:
+
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": env("CLOUD_NAME"),
+        "API_KEY": env("API_KEY"),
+        "API_SECRET": env("API_SECRET"),
+    }
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
@@ -164,5 +167,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 django_heroku.settings(locals())
 
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"

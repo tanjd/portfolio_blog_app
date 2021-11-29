@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
+from django.views.generic.base import TemplateView
 from django.views.generic import (
     ListView,
     DetailView,
@@ -13,9 +14,13 @@ from .models import Post
 from .forms import CreatePostForm, UpdatePostForm
 
 
+class ResumeView(TemplateView):
+    template_name = "posts/index.html"
+
+
 class PostListView(ListView):
     model = Post
-    template_name = "posts/home.html"
+    template_name = "posts/post_list.html"
     context_object_name = "posts"
     ordering = ["-created"]
     paginate_by = 5
