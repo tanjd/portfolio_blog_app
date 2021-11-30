@@ -140,14 +140,14 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-# if not env("DEBUG"):
-# CLOUDINARY_STORAGE = {
-#     "CLOUD_NAME": env("CLOUD_NAME"),
-#     "API_KEY": env("API_KEY"),
-#     "API_SECRET": env("API_SECRET"),
-# }
-# DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+if not env("DEBUG"):
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": env("CLOUD_NAME"),
+        "API_KEY": env("API_KEY"),
+        "API_SECRET": env("API_SECRET"),
+    }
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
