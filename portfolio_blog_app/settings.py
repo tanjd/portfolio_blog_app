@@ -140,8 +140,7 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-if DEBUG == False:
-
+if not DEBUG:
     CLOUDINARY_STORAGE = {
         "CLOUD_NAME": env("CLOUD_NAME"),
         "API_KEY": env("API_KEY"),
