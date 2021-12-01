@@ -226,3 +226,7 @@ header.masthead .post-heading .meta a {
     font-size: 36px;
   }
 }
+
+.django-ckeditor-widget {
+  width: 100%;
+}

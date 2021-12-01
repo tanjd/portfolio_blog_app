@@ -151,14 +151,17 @@ if not env("DEBUG"):
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+
 CKEDITOR_CONFIGS = {
     "default": {
-        "autoGrow_onStartup": True,
-        "autoGrow_minHeight": 400,
-        "autoGrow_maxHeight": 650,
         "extraPlugins": "autogrow",
+        "autoGrow_onStartup": True,
+        "autoGrow_minHeight": 300,
+        "autoGrow_maxHeight": 650,
+        "width": "100%",
     },
 }
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
